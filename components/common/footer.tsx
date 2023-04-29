@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { navigation } from "../data/navigation"
+
 
 const socialLinks = [
   {
@@ -47,11 +49,6 @@ const socialLinks = [
       </svg>
     ),
   }
-]
-
-const navigation = [
-  { name: 'Blogs', href: '/blogs' },
-  { name: 'Portfolio', href: '/portfolios' },
 ]
 
 function Copyright() {
