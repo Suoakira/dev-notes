@@ -1,8 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Link from "next/link";
-import { getDir, getFileNames, getItemInPath } from "../lib/md"
+import { getBlogFileNames, getBlog } from "../lib/md"
 import { BlogList, PortfolioList, LayoutBase } from "../components/index"
-import { join } from "path";
 
 const Home: NextPage = () => {
   return (
@@ -33,11 +32,10 @@ const Home: NextPage = () => {
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const blogDir = getDir("/content/blogs")
-  const blogFileNames = getFileNames(blogDir)
-  blogFileNames.forEach((blogFileName) => {
-    const blogContent = getItemInPath(join(blogDir, blogFileName));
 
+  const blogFileNames = getBlogFileNames()
+  blogFileNames.forEach((blogFileName) => {
+    const blogContent = getBlog(blogFileName);
     console.log(blogContent)
   })
   return {
