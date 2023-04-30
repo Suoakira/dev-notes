@@ -3,9 +3,9 @@ import Head from 'next/head';
 import Link from "next/link";
 import Image from 'next/legacy/image';
 
-import { Footer, Header, Navbar, BlogList, PortfolioList } from "../../components/index"
+import { Footer, Header, Navbar, PortfolioList } from "../../components/index"
 
-const layoutBase = () => {
+const layoutBase = ({children}: any) => {
     return (
 			<>
       <div className="mx-auto max-w-7xl px-4 space-y-8 sm:px-6 lg:px-8">
@@ -30,30 +30,8 @@ const layoutBase = () => {
             />
           </div>        
         </div>
-
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 
-            className="text-2xl font-bold tracking-tight text-gray-900">
-              Newest Blogs
-              <Link legacyBehavior href="/blogs">
-                <a className='text-sm ml-1 text-indigo-600'>
-                  (See All)
-                </a>
-              </Link>
-          </h2>
-          <BlogList />
-          <br></br>
-
-          <h2 
-            className="text-2xl font-bold tracking-tight text-gray-900">
-              Portfolios
-              <Link legacyBehavior href="/portfolios">
-                <a className='text-sm ml-1 text-indigo-600'>
-                  (See All)
-                </a>
-              </Link>
-          </h2>
-          <PortfolioList />
+          { children }
         </div>
       </div>
       <Footer />

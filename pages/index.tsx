@@ -1,6 +1,6 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Link from "next/link";
-
+import { getBlogs } from "../lib/blogs"
 import { BlogList, PortfolioList, LayoutBase } from "../components/index"
 
 const Home: NextPage = () => {
@@ -29,6 +29,17 @@ const Home: NextPage = () => {
       <PortfolioList />
     </LayoutBase>
   )
+}
+
+export const getStaticProps: GetStaticProps = () => {
+
+  const blogs = getBlogs();
+  console.log(blogs)
+  return {
+      props: {
+
+      }
+  }
 }
 
 export default Home
