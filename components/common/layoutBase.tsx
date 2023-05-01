@@ -1,11 +1,11 @@
 
 import Head from 'next/head';
-import Link from "next/link";
 import Image from 'next/legacy/image';
 
-import { Footer, Header, Navbar, PortfolioList } from "../../components/index"
+import { Footer, Header, Navbar } from "../../components/index"
+import { FunctionComponent } from 'react';
 
-const layoutBase = ({children}: any) => {
+const layoutBase: FunctionComponent<PropsWithChildren> = ({children}: any) => {
     return (
 			<>
       <div className="mx-auto max-w-7xl px-4 space-y-8 sm:px-6 lg:px-8">
