@@ -16,7 +16,7 @@ const Home: NextPage<Props> = ({ blogs }) => {
           Newest Blogs
           <Link legacyBehavior href="/blogs">
             <a className='text-sm ml-1 text-indigo-600'>
-              (See All)
+              ( See All )
             </a>
           </Link>
       </h2>
@@ -27,7 +27,7 @@ const Home: NextPage<Props> = ({ blogs }) => {
           Portfolios
           <Link legacyBehavior href="/portfolios">
             <a className='text-sm ml-1 text-indigo-600'>
-              (See All)
+              ( See All )
             </a>
           </Link>
       </h2>
@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = () => {
   const blogs = getBlogs();
   console.log(blogs)
   return {
-      props: {blogs}
+      props: { blogs }
   }
 }
 
