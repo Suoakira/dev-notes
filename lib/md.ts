@@ -3,6 +3,9 @@ import { join } from "path"
 import matter from "gray-matter"
 import { MarkdownItem } from "@/interfaces/Markdown"
 import { getBlog } from "./blogs"
+import html from "remark-html"
+import remarkGfm from "remark-gfm"
+import { remark } from "remark"
 
 const getDir = (path: string) =>  join(process.cwd(), path)
 
@@ -24,9 +27,19 @@ const getAllItems = (
     return items;
 }
 
+const markdownToHtml = async (markdown: string) => {
+    const result = await remark()
+        .use(html)
+        .use(remarkGfm)
+        .process(markdown)
+
+    return result.toString();
+}
+
 export {
     getFileNames,
     getDir,
     getItemInPath,
-    getAllItems
+    getAllItems,
+    markdownToHtml
 }
